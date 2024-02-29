@@ -72,7 +72,8 @@ jobs:
         cd tests
         $XVFB bash run-tests.sh
 
-    - uses: actions/upload-artifact@v3
-      with: 
-        name: aseprite
-        path: build
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-${{ matrix.os }}-${{ matrix.build_type }}-${{ matrix.enable_ui }}
+        path: build/bin/aseprite
