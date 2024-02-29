@@ -7,8 +7,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
-        build_type: [RelWithDebInfo, Debug]
-        enable_ui: [off]
+        build_type: [Release]
+        enable_ui: [on]
         include:
           - os: ubuntu-latest
             build_type: Debug
@@ -71,3 +71,8 @@ jobs:
         export ASEPRITE=$PWD/build/bin/aseprite
         cd tests
         $XVFB bash run-tests.sh
+
+    - name: actions/upload-artifact@v3
+      with: 
+        name: aseprite
+        path: build
