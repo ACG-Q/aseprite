@@ -46,6 +46,7 @@ jobs:
           export enable_ccache=on
         fi
         cmake -S . -B build -G Ninja \
+          -DLAF_BACKEND=skia \
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
           -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
           -DENABLE_TESTS=ON \
