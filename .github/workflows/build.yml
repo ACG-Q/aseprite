@@ -72,7 +72,7 @@ jobs:
         cd tests
         $XVFB bash run-tests.sh
 
-    - name: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with: 
         name: aseprite
         path: build
